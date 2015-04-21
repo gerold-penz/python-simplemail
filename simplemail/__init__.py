@@ -22,6 +22,7 @@ import time
 import smtplib
 import mimetypes
 import email
+import email.header
 from email.message import Message
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart

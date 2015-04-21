@@ -8,38 +8,45 @@ Created
 """
 
 import os
-from setuptools import setup, find_packages, findall
+from setuptools import setup, find_packages
 
 THISDIR = os.path.dirname(os.path.abspath(__file__))
 os.chdir(THISDIR)
 
 VERSION = open("version.txt").readline().strip()
-HOMEPAGE = "https://code.google.com/p/python-simplemail/"
-DOWNLOAD_BASEURL = "https://python-simplemail.googlecode.com/files/"
+HOMEPAGE = "https://github.com/gerold-penz/python-simplemail"
+DOWNLOAD_BASEURL = "https://github.com/gerold-penz/python-simplemail/raw/master/dist/"
 DOWNLOAD_URL = DOWNLOAD_BASEURL + "python-simplemail-%s.tar.gz" % VERSION
 
 
 setup(
-#    install_requires = [],
     name = "python-simplemail",
     version = VERSION,
     description = (
-        "Python Module To Send Emails"
+        "Simple SMTP Client For Sending Emails With And Without Attachments"
     ),
-    long_description = open("README.txt").read(),
-    keywords = "email simplemail send attachments e-mail",
+    long_description = open("README.rst").read(),
+    keywords = (
+        "email, simplemail, sending, attachments, e-mail, SMTP, client"
+    ),
     author = "Gerold Penz",
     author_email = "gerold@halvar.at",
     url = HOMEPAGE,
     download_url = DOWNLOAD_URL,
     packages = find_packages(),
     classifiers = [
-        "Development Status :: 5 - Production/Stable",
+        # "Development Status :: 1 - Planning",
+        # "Development Status :: 2 - Pre-Alpha",
+        # "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
+        # "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)",
+        "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 2",
         "Topic :: Communications :: Email",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: System :: Networking",
     ],
 )
-
