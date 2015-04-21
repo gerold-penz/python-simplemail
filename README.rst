@@ -26,8 +26,8 @@ Example
         smtp_server = "localhost",
         smtp_user = "my_username",
         smtp_password = "my_password",
-        from_address = u"sender@domain.at",
-        to_address = u"recipient@domain.at",
+        from_address = "sender@domain.at",
+        to_address = "recipient@domain.at",
         subject = u"This is the subject with umlauts (ÖÄÜß)",
         message = u"This is the short message body with umlauts (ÖÄÜß)."
     ).send()
