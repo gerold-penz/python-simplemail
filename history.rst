@@ -4,12 +4,23 @@ Python-Simplemail
 
 
 =============
-Version 2.0.0
+Version 2.0.3
+=============
+
+2015-04-21
+
+- Tests completed
+
+
+=============
+Version 2.0.2
 =============
 
 2015-04-21
 
 - Added to Github
+
+- New setup for PyPi
 
 
 =============

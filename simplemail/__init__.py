@@ -210,7 +210,7 @@ class Email(object):
             self.user_agent = user_agent
         else:
             self.user_agent = (
-                "SimpleMail Python/%s (http://www.python-forum.de/post-18144.html)"
+                "SimpleMail Python/%s (https://github.com/gerold-penz/python-simplemail)"
             ) % sys.version.split()[0]
         self.reply_to_address = reply_to_address
         if isinstance(reply_to_caption, unicode):
@@ -286,24 +286,24 @@ class Email(object):
         # Empfänger, CC, BCC, Absender, User-Agent, Antwort-an
         # und Betreff hinzufügen
         from_str = email.utils.formataddr((self.from_caption, self.from_address))
-        msg["from"] = from_str
+        msg["From"] = from_str
         if self.reply_to_address:
             reply_to_str = email.utils.formataddr(
                 (self.reply_to_caption, self.reply_to_address)
             )
-            msg["reply-to"] = reply_to_str
+            msg["Reply-To"] = reply_to_str
         if self.recipients.count() > 0:
-            msg["to"] = ", ".join(self.recipients.get_list())
+            msg["To"] = ", ".join(self.recipients.get_list())
         if self.cc_recipients.count() > 0:
-            msg["cc"] = ", ".join(self.cc_recipients.get_list())
-        msg["date"] = email.utils.formatdate(time.time())
-        msg["user-agent"] = self.user_agent
+            msg["Cc"] = ", ".join(self.cc_recipients.get_list())
+        msg["Date"] = email.utils.formatdate(time.time())
+        msg["User-Agent"] = self.user_agent
         try:
-            msg["subject"] = email.header.Header(
+            msg["Subject"] = email.header.Header(
                 self.subject, self.header_charset
             )
         except UnicodeDecodeError:
-            msg["subject"] = email.header.Header(
+            msg["Subject"] = email.header.Header(
                 self.subject, self.content_charset
             )
         # User defined header_fields

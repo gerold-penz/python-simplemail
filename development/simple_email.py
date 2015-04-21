@@ -14,15 +14,15 @@ import simplemail
 
 
 simplemail.Email(
-    smtp_server = "smtp.gmail.com:587",
-    smtp_user = "xxx@gmail.com",
+    smtp_server = "smtp.a1.net:25",
+    smtp_user = "xxx",
     smtp_password = "xxx",
-    use_tls = True,
+    use_tls = False,
 
-    from_address = "xxx@gmail.com",
-    to_address = "xxx@xxx.xx",
+    from_address = "xxx",
+    to_address = "xxx",
 
-    subject = u"Really simple example with umlauts (öäüß)",
+    subject = u"Really simple test with umlauts (öäüß)",
     message = u"This is the message with umlauts (öäüß)",
 ).send()
 
