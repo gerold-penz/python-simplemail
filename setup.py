@@ -23,7 +23,7 @@ setup(
     name = "python-simplemail",
     version = VERSION,
     description = (
-        "Simple SMTP Client For Sending Emails With And Without Attachments"
+        "Python-Simplemail - Simple SMTP Client Library To Send Emails With Python"
     ),
     long_description = open("README.rst").read(),
     keywords = (
@@ -38,8 +38,8 @@ setup(
         # "Development Status :: 1 - Planning",
         # "Development Status :: 2 - Pre-Alpha",
         # "Development Status :: 3 - Alpha",
-        "Development Status :: 4 - Beta",
-        # "Development Status :: 5 - Production/Stable",
+        # "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
         "License :: OSI Approved :: MIT License",

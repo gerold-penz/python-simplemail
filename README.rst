@@ -1,6 +1,6 @@
-#################################################################
-Python-Simplemail - Simple SMTP Client Library For Sending Emails
-#################################################################
+#########################################################################
+Python-Simplemail - Simple SMTP Client Library To Send Emails With Python
+#########################################################################
 
 Python-Simplemail sends emails with and without attachments
 
