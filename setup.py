@@ -23,11 +23,11 @@ setup(
     name = "python-simplemail",
     version = VERSION,
     description = (
-        "Simple SMTP Client Library To Send Emails With Python"
+        "Send Emails with Python - Simple SMTP Email Client Library"
     ),
     long_description = open("README.rst").read(),
     keywords = (
-        "email, simplemail, sending, attachments, e-mail, SMTP, client"
+        "Email, Send, Attachments, E-Mail, SMTP, Client, Simplemail"
     ),
     author = "Gerold Penz",
     author_email = "gerold@halvar.at",
