@@ -1,25 +1,23 @@
-#################
-Python-Simplemail
-#################
+##########################################################################
+Python-Simplemail - Simple SMTP Client For Sending Emails With Attachments
+##########################################################################
 
-Python-Simplemail ist ein Python-Paket zum Versenden von Emails mit Anhängen.
+Python-Simplemail sends emails with and without attachments
 
---------------
 
-ACHTUNG! Ich bin mitten in der Umstellung von SVN nach Git und die Integration
-ins PyPi ist auch noch am Laufen. Bitte gönnt mir noch ein wenig Zeit um die
-Umstellungen durchzuführen. :-)
+============
+Installation
+============
 
---------------
+::
 
-Aus Kompatibilitätsgründen wird die Weiterentwicklung von Simplemail im Ordner
-*simplemail2* stattfinden. *simplemail2* wird in Teilen nicht mehr abwärtskompatibel
-sein.
+    pip install python-simplemail
 
-*simplemail2* ist im Moment noch nicht einsatzbereit. Bitte verwende so lange 
-noch das altbewährte *simplemail*.
 
-Beispiel:
+=======
+Example
+=======
+
 
 .. code:: python
 
@@ -34,8 +32,13 @@ Beispiel:
         message = u"This is the short message body with umlauts (ÖÄÜß)."
     ).send()
 
-Anwendungsbeispiele findest du im Python-Forum: http://www.python-forum.de/viewtopic.php?f=11&t=3158
+Find examples in the German Python-Forum: http://www.python-forum.de/viewtopic.php?f=11&t=3158
 
-mfg
-Gerold
-:-)
+
+========
+Licenses
+========
+
+- GNU Library or Lesser General Public License (LGPL)
+- MIT License
+

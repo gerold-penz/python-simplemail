@@ -4,6 +4,15 @@ Python-Simplemail
 
 
 =============
+Version 2.0.0
+=============
+
+2015-04-21
+
+- Added to Github
+
+
+=============
 Version 1.0.0
 =============
 
