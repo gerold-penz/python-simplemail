@@ -384,7 +384,7 @@ class Email(object):
             ),
             msg.as_string()
         )
-        smtp.close()
+        smtp.quit()
 
         # Rueckmeldung
         return True

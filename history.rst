@@ -4,6 +4,15 @@ Python-Simplemail
 
 
 =============
+Version 2.0.4
+=============
+
+2015-04-22
+
+- *smtp.quit()* should do a better job as *smtp.close()*.
+
+
+=============
 Version 2.0.3
 =============
 
