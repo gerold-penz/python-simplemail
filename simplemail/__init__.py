@@ -160,6 +160,7 @@ class Email(object):
         reply_to_address = "",
         reply_to_caption = "",
         use_tls = False,
+        use_ssl = False,
         header = None,
     ):
         """
@@ -178,6 +179,7 @@ class Email(object):
         :param reply_to_address: (optional) Reply-to email address
         :param reply_to_caption: (optional) Reply-to caption (name)
         :param use_tls: (optional) True, if the connection should use TLS to encrypt.
+        :param use_ssl: (optional) True, if the connection should use SSL to encrypt.
         :param header: (optional) Additional header fields as dictionary.
             You can use this parameter to add additional header fields.
             Allready (internal) used header fields are: "From", "Reply-To", "To",
@@ -219,6 +221,7 @@ class Email(object):
             )
         self.reply_to_caption = reply_to_caption
         self.use_tls = use_tls
+        self.use_ssl = use_ssl
         self.header_fields = header or {}
 
 
@@ -356,7 +359,10 @@ class Email(object):
         #
         # Am SMTP-Server anmelden
         #
-        smtp = smtplib.SMTP()
+        if self.use_ssl:
+            smtp = smtplib.SMTP_SSL()
+        else:
+            smtp = smtplib.SMTP()
         if self.smtp_server:
             smtp.connect(self.smtp_server)
         else:
