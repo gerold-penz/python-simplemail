@@ -160,8 +160,10 @@ class Email(object):
         reply_to_address = "",
         reply_to_caption = "",
         use_tls = False,
-        use_ssl = False,
         header = None,
+        use_ssl = False,
+        keyfile = None,
+        certfile = None
     ):
         """
         Initializes the email object
@@ -172,19 +174,25 @@ class Email(object):
         :param to_caption: the caption (name) of the recipient
         :param subject: the subject of the email message
         :param message: the body text of the email message
-        :param smtp_server: the ip-address or the name of the SMTP-server
+        :param smtp_server: The ip-address or the name of the SMTP-server.
+            The default is to connect to the local host at the standard
+            SMTP port (25). If the hostname ends with a colon (':') followed
+            by a number, that suffix will be stripped off and the number
+            interpreted as the port number to use.
         :param smtp_user: (optional) Login name for the SMTP-Server
         :param smtp_password: (optional) Password for the SMTP-Server
         :param user_agent: (optional) program identification
         :param reply_to_address: (optional) Reply-to email address
         :param reply_to_caption: (optional) Reply-to caption (name)
         :param use_tls: (optional) True, if the connection should use TLS to encrypt.
-        :param use_ssl: (optional) True, if the connection should use SSL to encrypt.
         :param header: (optional) Additional header fields as dictionary.
             You can use this parameter to add additional header fields.
             Allready (internal) used header fields are: "From", "Reply-To", "To",
             "Cc", "Date", "User-Agent" and "Subject". (case sensitive)
             The items of this dictionary replace internal used header fields.
+        :param use_ssl: (optional) True, if the connection should use SSL to encrypt.
+        :param keyfile: (optional) Keyfile for SSL or TLS.
+        :param certfile: (optional) Certfile for SSL or TLS.
         """
 
         self.from_address = from_address
@@ -221,8 +229,10 @@ class Email(object):
             )
         self.reply_to_caption = reply_to_caption
         self.use_tls = use_tls
-        self.use_ssl = use_ssl
         self.header_fields = header or {}
+        self.use_ssl = use_ssl
+        self.keyfile = keyfile
+        self.certfile = certfile
 
 
     def send(self):
@@ -357,29 +367,28 @@ class Email(object):
                 msg.attach(att)
 
         #
-        # Am SMTP-Server anmelden
+        # Connect to SMTP-server
         #
         if self.use_ssl:
-            smtp = smtplib.SMTP_SSL()
+            smtp = smtplib.SMTP_SSL(
+                keyfile = self.keyfile, certfile = self.certfile
+            )
         else:
             smtp = smtplib.SMTP()
-        if self.smtp_server:
-            smtp.connect(self.smtp_server)
-        else:
-            smtp.connect()
+        smtp.connect(host = self.smtp_server or "localhost")
 
-        # TLS-Verschlüsselung
+        # TLS
         if self.use_tls:
             smtp.ehlo()
-            smtp.starttls()
+            smtp.starttls(keyfile = self.keyfile, certfile = self.certfile)
             smtp.ehlo()
 
-        # authentifizieren
+        # authenticate
         if self.smtp_user:
             smtp.login(user = self.smtp_user, password = self.smtp_password)
 
         #
-        # Email versenden
+        # Send email
         #
         self.statusdict = smtp.sendmail(
             from_str,

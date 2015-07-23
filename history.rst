@@ -4,6 +4,21 @@ Python-Simplemail
 
 
 =============
+Version 2.1.0
+=============
+
+2015-07-23
+
+- SSL added. Thanks JonasR. https://github.com/gerold-penz/python-simplemail/pull/2
+
+- New params:
+
+  - use_ssl
+  - keyfile
+  - certfile
+
+
+=============
 Version 2.0.4
 =============
 
