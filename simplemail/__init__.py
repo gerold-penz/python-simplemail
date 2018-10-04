@@ -237,6 +237,16 @@ class Email(object):
 
     def send(self):
         """
+        en: Sends the email to the recipient.
+            If the email is only sent to one recipient, if only one recipient is
+            specfied, <True> will be returned. If the email is send to several
+            recipient and was succesfully delivered to at least one recipient,
+            <True> will be returned either way.
+
+            If the email was only sent to one recipient and sending failed, then
+            <False> will be returned. If the email was sent to several recipients
+            and failed to be sent to any recipient, then <False> will be returned.
+        
         de: Sendet die Email an den Empfaenger.
             Wird das Email nur an einen Empfaenger gesendet, dann wird bei
             Erfolg <True> zurueck gegeben. Wird das Email an mehrere Empfaenger
